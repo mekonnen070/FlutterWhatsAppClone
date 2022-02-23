@@ -5,12 +5,11 @@ class StatusScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xfff2f2f2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Card(
-            color: Colors.white,
+            // color: KmenuColor,
             elevation: 0.0,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -59,7 +58,7 @@ class StatusScreen extends StatelessWidget {
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(8.0),
-              color: Colors.white,
+              // color: KmenuColor,
               child: ListView(
                 children: <Widget>[
                   ListTile(

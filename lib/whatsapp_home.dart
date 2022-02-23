@@ -1,9 +1,12 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterwhatsapp/ChangeThemeToggleButton.dart';
+import 'package:flutterwhatsapp/drawer.dart';
 import 'package:flutterwhatsapp/pages/call_screen.dart';
 import 'package:flutterwhatsapp/pages/camera_screen.dart';
 import 'package:flutterwhatsapp/pages/chat_screen.dart';
 import 'package:flutterwhatsapp/pages/status_screen.dart';
+import 'package:wiredash/wiredash.dart';
 
 class WhatsAppHome extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -36,6 +39,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerPage(),
       appBar: AppBar(
         title: Text("WhatsApp"),
         elevation: 0.7,
@@ -46,6 +50,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
             Tab(icon: Icon(Icons.camera_alt)),
             Tab(text: "CHATS"),
             Tab(
+              // ./gradlew wrapper --gradle-version 7.4
               text: "STATUS",
             ),
             Tab(
@@ -54,6 +59,8 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           ],
         ),
         actions: <Widget>[
+          ChangeThemeButtonWidget(),
+          SizedBox(width: 8),
           Icon(Icons.search),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5.0),
@@ -72,7 +79,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
       ),
       floatingActionButton: showFab
           ? FloatingActionButton(
-              backgroundColor: Theme.of(context).accentColor,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
               child: Icon(
                 Icons.message,
                 color: Colors.white,
